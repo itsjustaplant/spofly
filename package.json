@@ -1,0 +1,19 @@
+{
+  "main": "main.js",
+  "name": "spofly",
+  "version": "1.0",
+  "description": "Spofly desktop application",
+  "author": "justaplant",
+  "dependencies": {
+    "@material-ui/icons": "^4.9.1",
+    "genius-lyrics-api": "^3.0.3",
+    "spotify-node-applescript": "^1.1.1"
+  },
+  "devDependencies": {
+    "electron": "^10.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsjustaplant/spofly.git"
+  }
+}
