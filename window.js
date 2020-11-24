@@ -1,6 +1,6 @@
 const spotify = require('spotify-node-applescript')
-let base_api_url = "http://colorflyv1.herokuapp.com/v1/color/"
-const genius = require('genius-lyrics-api')
+let color_base_url = "http://colorflyv1.herokuapp.com/v1/color/"
+let lyrics_base_url = "http://colorflyv1.herokuapp.com/v1/lyrics/"
 
 const getColor = (api_url) =>{
     const xhr = new XMLHttpRequest()
@@ -17,6 +17,17 @@ const getColor = (api_url) =>{
     xhr.send()
 }
 
+const getLyrics = (api_url, opt) =>{
+    const xhr = new XMLHttpRequest()
+    xhr.open('POST', api_url, true)
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response)
+        document.getElementById('lyrics').textContent = data['lyrics']
+    }
+    xhr.send(JSON.stringify(opt))
+}
+
 const renderPage = () =>{
     spotify.getTrack((err, track) =>{
         let temp_track = track['name']
@@ -24,18 +35,14 @@ const renderPage = () =>{
         if (temp_track !== track_name){
             let track_name = track['name']
             let image_url = track['artwork_url']
-            let api_url = base_api_url + image_url
+            let api_url = color_base_url + image_url
             let artist_name = track['artist']
-            getColor(api_url)
             const options = {
-                apiKey: '--insert api key here--',
-                title: track['name'],
                 artist: track['artist'],
-                optimizeQuery: true
+                song: track['name']
             }
-            genius.getLyrics(options).then((lyrics) => {
-                document.getElementById('lyrics').textContent = lyrics
-            })
+            getColor(api_url)
+            getLyrics(lyrics_base_url, options)
             document.getElementById('cover_art').src = image_url
             document.getElementById('track_name').textContent = track_name
             document.getElementById('artist_name').textContent = artist_name
