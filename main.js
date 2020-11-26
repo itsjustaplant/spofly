@@ -23,7 +23,8 @@ app.once('ready', () => {
         resizable: true,
         webPreferences: {
             nodeIntegration: true,
-            enableRemoteModule: true
+            enableRemoteModule: true,
+            devTools: false
         }
     })
 

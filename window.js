@@ -30,10 +30,8 @@ const getLyrics = (api_url, opt) =>{
 
 const renderPage = () =>{
     spotify.getTrack((err, track) =>{
-        let temp_track = track['name']
-
-        if (temp_track !== track_name){
-            let track_name = track['name']
+        let track_name = track['name']
+        if (document.getElementById('track_name').textContent !== track_name){
             let image_url = track['artwork_url']
             let api_url = color_base_url + image_url
             let artist_name = track['artist']
