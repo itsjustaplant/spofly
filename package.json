@@ -5,8 +5,6 @@
   "description": "Spofly desktop application",
   "author": "justaplant",
   "dependencies": {
-    "@material-ui/icons": "^4.9.1",
-    "genius-lyrics-api": "^3.0.3",
     "spotify-node-applescript": "^1.1.1"
   },
   "devDependencies": {
