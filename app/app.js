@@ -42,8 +42,7 @@ const renderPage = () =>{
             getColor(api_url)
             getLyrics(lyrics_base_url, options)
             document.getElementById('cover_art').src = image_url
-            document.getElementById('track_name').textContent = track_name
-            document.getElementById('artist_name').textContent = artist_name
+            document.getElementById('track_name').textContent = artist_name + " - " + track_name
         }
     })
 }

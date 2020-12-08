@@ -1,7 +1,5 @@
-#close-button{
+.ui-button{
     margin-top: 1.5vw;
-    margin-left: 2vw;
-    background: #ff5c5c;
     border: 1px solid #e33e41;
     border-radius: 50%;
     display: inline-block;
@@ -14,27 +12,19 @@
     text-align: center;
     vertical-align: center;
     -webkit-transition: all 0.2s ease;
+}
+#close-button{
+    margin-left: 2vw;
+    background: #ff5c5c;
+}
+#minimize-button{
+    margin-left: 6vw;
+    background: #ffd60a;
 }
 #cover:hover > #close-button {
     opacity: 100;
 }
-#minimize-button{
-    margin-top: 1.5vw;
-    margin-left: 6vw;
-    background: #ffd60a;
-    border: 1px solid #e33e41;
-    border-radius: 50%;
-    display: inline-block;
-    z-index: 3;
-    position: fixed;
-    height: 12px;
-    width: 12px;
-    opacity: 0;
-    font-size: 8pt;
-    text-align: center;
-    vertical-align: center;
-    -webkit-transition: all 0.2s ease;
-}
+
 #cover:hover > #minimize-button {
     opacity: 100;
 }
@@ -74,6 +64,11 @@ body{
     font-weight: bold;
     margin-top: 100vw;
     font-size: 18px;
+}
+#track_name{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 #lyrics{
     text-align: center;

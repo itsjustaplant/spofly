@@ -14,3 +14,4 @@ minimizeBtn.addEventListener("click", function (event){
     const window = remote.getCurrentWindow();
     window.minimize()
 })
+
