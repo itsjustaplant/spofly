@@ -2,7 +2,6 @@ const {app, BrowserWindow} = require('electron') // http://electronjs.org/docs/a
 const path = require('path') // https://nodejs.org/api/path.html
 const url = require('url') // https://nodejs.org/api/url.html
 
-
 let window = null
 
 // Wait until the app is ready
@@ -19,6 +18,7 @@ app.once('ready', () => {
         minHeight:800,
         show: false,
         frame: false,
+        icon: __dirname + "/icon/spofly_512x512.icns",
         // Don't allow the window to be resized.
         resizable: true,
         webPreferences: {
@@ -30,7 +30,7 @@ app.once('ready', () => {
 
     // Load a URL in the window to the local index.html path
     window.loadURL(url.format({
-        pathname: path.join(__dirname, 'home.html'),
+        pathname: path.join(__dirname, './app/app.html'),
         protocol: 'file:',
         slashes: true
     }))
@@ -38,6 +38,5 @@ app.once('ready', () => {
     // Show window when page is ready
     window.once('ready-to-show', () => {
         window.show()
-
     })
 })
