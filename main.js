@@ -22,9 +22,12 @@ app.once('ready', () => {
         // Don't allow the window to be resized.
         resizable: true,
         webPreferences: {
+            webSecurity: true,
             nodeIntegration: true,
             enableRemoteModule: true,
-            devTools: false
+            allowRunningInsecureContent: false,
+            experimentalFeatures: false,
+            devTools: true
         }
     })
 
@@ -37,6 +40,7 @@ app.once('ready', () => {
 
     // Show window when page is ready
     window.once('ready-to-show', () => {
+        console.log("we are here")
         window.show()
     })
 })

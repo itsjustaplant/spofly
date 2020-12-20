@@ -1,6 +1,6 @@
 const spotify = require('spotify-node-applescript')
-let color_base_url = "http://colorflyv1.herokuapp.com/v1/color/"
-let lyrics_base_url = "http://colorflyv1.herokuapp.com/v1/lyrics/"
+let color_base_url = "https://colorflyv1.herokuapp.com/v1/color/"
+let lyrics_base_url = "https://colorflyv1.herokuapp.com/v1/lyrics/"
 
 const getColor = (api_url) =>{
     const xhr = new XMLHttpRequest()

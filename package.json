@@ -1,8 +1,8 @@
 {
   "main": "main.js",
   "name": "spofly",
-  "version": "1.3.0",
-  "description": "Spofly desktop application",
+  "version": "1.4.0",
+  "description": "Desktop application to find lyrics",
   "author": "justaplant",
   "dependencies": {
     "spotify-node-applescript": "^1.1.1"
