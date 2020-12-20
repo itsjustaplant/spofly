@@ -40,7 +40,6 @@ app.once('ready', () => {
 
     // Show window when page is ready
     window.once('ready-to-show', () => {
-        console.log("we are here")
         window.show()
     })
 })
