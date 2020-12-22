@@ -33,8 +33,11 @@ body::-webkit-scrollbar {
     display: none;
 }
 body{
+    width: 100vw;
+    height: 100vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-color: #ffc2c2;
 }
 #cover_art{
     width: 100%;
@@ -48,6 +51,7 @@ body{
     -webkit-user-select: none;
     -ms-user-select: none;
     -webkit-app-region: drag;
+
 }
 #lyric_section{
     margin: auto;
@@ -85,4 +89,33 @@ pre{
     white-space: -moz-pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+}
+#status_bar{
+    z-index: 4;
+    width: 100vw;
+    height: 4vh;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    margin-top: 96vh;
+    opacity: 0;
+}
+#status{
+    font-size: 20px;
+}
+@keyframes snap {
+    0%{
+        opacity: 100;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes reverse-snap {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
 }

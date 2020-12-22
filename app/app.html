@@ -11,14 +11,14 @@
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self';
           connect-src https://colorflyv1.herokuapp.com;
-          img-src https://i.scdn.co/image/;
+          img-src 'self' https://i.scdn.co/image/;
           style-src-elem 'self' https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/;
 ">
     <title>SPOFLY</title>
 </head>
 <body id="body">
 <div id="cover">
-    <a> <img id="cover_art" alt="cover-art" src=""> </a>
+    <a> <img id="cover_art" src=""> </a>
     <a class="ui-button" id="close-button"></a>
     <a class="ui-button" id="minimize-button"></a>
 </div>
@@ -28,6 +28,10 @@
         <span id="track_name">justaplant</span>
     </div>
     <pre id="lyrics"><span></span></pre>
+</div>
+
+<div id="status_bar">
+    <a id="status"></a>
 </div>
 </body>
 </html>
