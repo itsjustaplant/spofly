@@ -46,11 +46,11 @@ const renderPage = () =>{
             document.getElementById('cover_art').src = image_url
             document.getElementById('track_name').textContent = artist_name + " - " + track_name
         } else if(!navigator.onLine){
-            document.getElementById('status').textContent = "🙈mayday we've lost connection🙈"
+            document.getElementById('status').textContent = "😞mayday we've lost connection😞"
             document.getElementById('status_bar').style.backgroundColor = '#ff5c5c'
             document.getElementById('status_bar').style.animation = 'reverse-snap 0.5s forwards'
         } else if(navigator.onLine){
-            document.getElementById('status_bar').style.animation = 'snap 0.5s forwards'
+            document.getElementById('status_bar').style.animation = 'snap 2s forwards'
         }
     })
 }
