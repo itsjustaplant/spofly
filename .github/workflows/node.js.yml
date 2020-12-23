@@ -24,6 +24,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: npm CI
+      working-directory:  ./spofly
+      run: npm ci
+    - name: nmp run
+      working-directory:  ./spofly
+      run: npm run build --if-present  
+    - name: nmp test
+    - working-directory:  ./spofly
+      run: npm test 
