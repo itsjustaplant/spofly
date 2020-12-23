@@ -1,7 +1,6 @@
 const spotify = require('spotify-node-applescript')
 
-let color_base_url = "https://colorflyv1.herokuapp.com/v1/color/"
-let lyrics_base_url = "https://colorflyv1.herokuapp.com/v1/lyrics/"
+const api_base_url = "https://colorflyv1.herokuapp.com/v1/"
 
 const getColor = (api_url) =>{
     const xhr = new XMLHttpRequest()
@@ -35,14 +34,14 @@ const renderPage = () =>{
         let check_name = track['artist'] + " - " + track_name
         if (document.getElementById('track_name').textContent !== check_name){
             let image_url = track['artwork_url']
-            let api_url = color_base_url + image_url
+            let api_url = api_base_url + "/color/" + image_url
             let artist_name = track['artist']
             const options = {
                 artist: track['artist'],
                 song: track['name']
             }
             getColor(api_url)
-            getLyrics(lyrics_base_url, options)
+            getLyrics(api_base_url + "/lyrics/", options)
             document.getElementById('cover_art').src = image_url
             document.getElementById('track_name').textContent = artist_name + " - " + track_name
         } else if(!navigator.onLine){
