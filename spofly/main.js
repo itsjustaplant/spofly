@@ -18,7 +18,7 @@ app.once('ready', () => {
         minHeight:800,
         show: false,
         frame: false,
-        icon: __dirname + "/icon/spofly_512x512.icns",
+        icon: __dirname + "/build/icon.icns",
         // Don't allow the window to be resized.
         resizable: true,
         webPreferences: {
