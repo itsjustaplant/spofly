@@ -1,5 +1,5 @@
 const spotify = require('spotify-node-applescript')
-
+const path = require('path')
 const api_base_url = "https://colorflyv1.herokuapp.com/v1/"
 
 const getColor = (api_url) =>{
@@ -33,17 +33,26 @@ const renderPage = () =>{
         let track_name = track['name']
         let check_name = track['artist'] + " - " + track_name
         if (document.getElementById('track_name').textContent !== check_name){
-            let image_url = track['artwork_url']
-            let api_url = api_base_url + "/color/" + image_url
             let artist_name = track['artist']
             const options = {
                 artist: track['artist'],
                 song: track['name']
             }
-            getColor(api_url)
+            if(artist_name === ""){
+                document.getElementById('track_name').textContent = track_name
+                document.getElementById('cover_art').src = path.join(__dirname, "../assets/404.png")
+                document.getElementById('body').style.backgroundColor = "#011fc2"
+                document.getElementById('song_title').style.color = "#e0dd1f"
+                document.getElementById('song_title').style.backgroundColor = "#011fc2"
+                document.getElementById('lyrics').style.color = "#e0dd1f"
+            } else{
+                let image_url = track['artwork_url']
+                let api_url = api_base_url + "/color/" + image_url
+                document.getElementById('cover_art').src = image_url
+                getColor(api_url)
+                document.getElementById('track_name').textContent = artist_name + " - " + track_name
+            }
             getLyrics(api_base_url + "/lyrics/", options)
-            document.getElementById('cover_art').src = image_url
-            document.getElementById('track_name').textContent = artist_name + " - " + track_name
         } else if(!navigator.onLine){
             document.getElementById('status').textContent = "😞mayday we've lost connection😞"
             document.getElementById('status_bar').style.backgroundColor = '#ff5c5c'
