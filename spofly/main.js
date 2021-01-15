@@ -3,7 +3,6 @@ const path = require('path') // https://nodejs.org/api/path.html
 const url = require('url') // https://nodejs.org/api/url.html
 
 let window = null
-
 // Wait until the app is ready
 app.once('ready', () => {
     // Create a new window
