@@ -37,6 +37,90 @@ body{
     height: 100vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-image: url("../assets/images/spofly_background480x800.png");
+    background-size: cover;
+    background-position: 0 0;
+    --background-color: #fafafa;
+    --text-color: #212121;
+
+    transition: background-color 1s ease;
+
+}
+#app{
+    position: absolute;
+    margin-top: -428px;
+    opacity: 0;
+}
+#intro{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+    width: 128px;
+    height: 128px;
+    -webkit-user-select: none;
+}
+#logo{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    animation: rotate 7s infinite;
+}
+#logo_text{
+    width: 100vw;
+    text-align: center;
+    alignment: center;
+    font-size: 42px;
+    -webkit-user-select: none;
+    font-family: 'Helvetica', serif;
+    font-weight: bold;
+    color: var(--text-color);
+}
+#bubble{
+    width: 40px;
+    margin-left: 20vw;
+    margin-top: 30vh;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    box-shadow: 0 0 18px #B2B2B2;
+    display: inline-block;
+    padding: 4px 4px;
+    font-size: 6px;
+    font-family: 'Raleway', sans-serif;
+    color: #212121 !important;
+}
+#empty_button{
+    height: 5vh;
+    background-color: transparent;
+    width: 128px;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.intro_text{
+    display: flex;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    color: #212121 !important;
+    transition: text-shadow 1s;
+}
+#empty_button:hover #plant{
+    display: none;
+}
+#empty_button:hover #link:before{
+    display: inline;
+    content: "Click me to copy url";
 }
 #cover_art{
     width: 100%;
@@ -50,13 +134,13 @@ body{
     -webkit-user-select: none;
     -ms-user-select: none;
     -webkit-app-region: drag;
-
 }
 #lyric_section{
     margin: auto;
     text-align: center;
     -webkit-user-select: none;
     font-family: 'Inter', sans-serif;
+    color: var(--text-color);
 }
 #song_title{
     text-align: center;
@@ -69,12 +153,18 @@ body{
     margin-top: 100vw;
     font-size: 20px;
     font-family: 'Inter', sans-serif;
+    transition: background-color 0.2s ease;
 }
 #track_name{
     text-overflow: fade;
     overflow: hidden;
     white-space: nowrap;
     font-family: 'Inter', sans-serif;
+    transition: color 0.2s ease;
+}
+#song_lyrics{
+    width: 100%;
+    height: 45vw;
 }
 #lyrics{
     text-align: center;
@@ -85,6 +175,7 @@ body{
     font-size: 19px;
     overflow: hidden;
     font-family: 'Raleway', sans-serif;
+    transition: color 0.2s ease;
 }
 pre{
     overflow-x: auto;
@@ -122,3 +213,25 @@ pre{
         opacity: 100;
     }
 }
+@keyframes rotate {
+     0% {
+         -webkit-transform: rotate3d(0, 0, 1, 0deg);
+         transform: rotate3d(0, 0, 1, 0deg);
+     }
+     25% {
+         -webkit-transform: rotate3d(0, 0, 1, 90deg);
+         transform: rotate3d(0, 0, 1, 90deg);
+     }
+     50% {
+         -webkit-transform: rotate3d(0, 0, 1, 180deg);
+         transform: rotate3d(0, 0, 1, 180deg);
+     }
+     75% {
+         -webkit-transform: rotate3d(0, 0, 1, 270deg);
+         transform: rotate3d(0, 0, 1, 270deg);
+     }
+     100% {
+         -webkit-transform: rotate3d(0, 0, 1, 360deg);
+         transform: rotate3d(0, 0, 1, 360deg);
+     }
+ }

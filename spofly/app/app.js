@@ -14,9 +14,10 @@ const getColor = (api_url) =>{
         const data = JSON.parse(xhr.response)
         let background_color = data['color_0']
         let text_color = data['color_1']
+        elem_body.style.backgroundImage = "url('')"
         elem_body.style.backgroundColor = background_color
-        elem_song_title.style.color = text_color
         elem_song_title.style.backgroundColor = background_color
+        elem_song_title.style.color = text_color
         elem_lyrics.style.color = text_color
     }
     xhr.send()
@@ -74,7 +75,7 @@ const renderPage = () =>{
             if(artist_name === ""){
 
                 elem_track_name.textContent = track_name
-                elem_cover_art.src = path.join(__dirname, "../assets/glitter_slow.gif")
+                elem_cover_art.src = path.join(__dirname, "../assets/images/glitter_slow.gif")
                 elem_cover_art.style.backgroundColor = "#343435"
                 elem_body.style.backgroundColor = "#343435"
                 elem_song_title.style.color = "#E0BA0D"
@@ -99,7 +100,15 @@ const renderPage = () =>{
         } else if(navigator.onLine){
             document.getElementById('status_bar').style.animation = 'snap 2s forwards'
         }
+        Transition()
     })
 }
-renderPage()
+const Transition = () =>{
+    const elem_logo_div = document.getElementById('intro')
+    const elem_app = document.getElementById('app')
+
+    elem_logo_div.style.opacity = "0"
+    elem_app.style.opacity = "100"
+}
+
 window.setInterval(renderPage, 10000)

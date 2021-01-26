@@ -21,21 +21,34 @@
     <title>SPOFLY</title>
 </head>
 <body id="body">
-<div id="cover">
-    <a> <img id="cover_art" src="" alt="cover-art"> </a>
-    <a class="ui-button" id="close-button"></a>
-    <a class="ui-button" id="minimize-button"></a>
-</div>
-
-<div id='lyric_section'>
-    <div id="song_title">
-        <span id="track_name">justaplant</span>
+<div id="intro">
+    <a> <img id="logo" src="../assets/images/spofly_icon_2_512x512.png"></a>
+    <a id="logo_text">spofly</a>
+    <div id="bubble">
+        <span><span></span>HOVER ME</span>
     </div>
-    <pre id="lyrics"><span></span></pre>
+    <button id="empty_button" onclick="">
+        <span class="intro_text" id="plant">Made by 🌱</span>
+        <span class="intro_text" id="link"></span>
+    </button>
 </div>
-
-<div id="status_bar">
-    <a id="status"></a>
+<div id="app">
+    <div id="cover">
+        <a> <img id="cover_art" src="" alt="cover-art"> </a>
+        <a class="ui-button" id="close-button"></a>
+        <a class="ui-button" id="minimize-button"></a>
+    </div>
+    <div id='lyric_section'>
+        <div id="song_title">
+            <span id="track_name">justaplant</span>
+        </div>
+        <div id="song_lyrics">
+            <pre id="lyrics"><span></span></pre>
+        </div>
+    </div>
+    <div id="status_bar">
+        <a id="status"></a>
+    </div>
 </div>
 </body>
 </html>
