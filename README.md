@@ -1,12 +1,12 @@
-# spofly
+![Banner](https://github.com/itsjustaplant/spofly/blob/macos/screenshots/spofly_banner_medium.png)
 Desktop app for spoflyv1.herokuapp.com
 
 It helps you to find lyrics of song you are currently listening on spotify without authentication.
 
 ### Screenshots 
 
-![Image of flume-friends](https://github.com/itsjustaplant/spofly/blob/master/screenshots/flume_resized.png)
-![Image of rickroll](https://github.com/itsjustaplant/spofly/blob/master/screenshots/rickastley_resized.png)
+![Image of flume-friends](https://github.com/itsjustaplant/spofly/blob/macos/screenshots/flume_resized.png)
+![Image of rickroll](https://github.com/itsjustaplant/spofly/blob/macos/screenshots/rickastley_resized.png)
 
 # Security
 - ✅ Only load secure content
