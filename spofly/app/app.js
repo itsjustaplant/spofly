@@ -1,7 +1,7 @@
 const spotify = require('spotify-node-applescript')
 const path = require('path')
-const api_base_url = "https://colorflyv1.herokuapp.com/v1/"
-const kanye_rest = "https://api.kanye.rest"
+const API_BASE_URL = "https://colorflyv1.herokuapp.com/v1/"
+const KANYE_REST_BASE_URL = "https://api.kanye.rest"
 
 const getColor = (api_url) =>{
     let elem_body = document.getElementById('body')
@@ -38,7 +38,7 @@ const getKanye = () =>{
 
     xhr.send()
     if(document.getElementById('lyrics').style.color !== "rgb(224, 186, 13)"){
-        xhr.open('GET', kanye_rest)
+        xhr.open('GET', KANYE_REST_BASE_URL)
         xhr.onload = () =>{
             elem_lyrics.style.marginTop = "65vh"
             elem_lyrics.style.fontSize = "22px"
@@ -52,6 +52,8 @@ const getLyrics = (opt) =>{
     const elem_lyrics = document.getElementById('lyrics')
     const elem_logo_div = document.getElementById('intro')
     const elem_app = document.getElementById('app')
+    const elem_body = document.getElementById('body')
+
     fetch("https://colorflyv1.herokuapp.com/v1//lyrics/", {
         headers: {
             "accept": "*/*",
@@ -69,6 +71,7 @@ const getLyrics = (opt) =>{
     }).then(response => response.json())
         .then(data =>{
             elem_lyrics.textContent = data['lyrics']
+            elem_body.style.overflow = "visible"
             elem_logo_div.style.animation = "fade-out 1s forwards"
             elem_app.style.animation = "fade-in 1s forwards"
         })
@@ -105,12 +108,12 @@ const renderPage = () =>{
                 elem_lyrics.style.color = "#E0BA0D"
 
             } else{
-                let image_url = track['artwork_url']
+                let artwork_url = track['artwork_url']
 
-                elem_cover_art.src = image_url
+                elem_cover_art.src = artwork_url
                 elem_track_name.textContent = artist_name + " - " + track_name
 
-                getColor(api_base_url + "/color/" + image_url)
+                getColor(API_BASE_URL + "/color/" + artwork_url)
                 getLyrics(options)
             }
 

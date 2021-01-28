@@ -15,8 +15,12 @@ minimizeBtn.addEventListener("click", function (event){
     const window = remote.getCurrentWindow();
     window.minimize()
 })
+
 empty_button.addEventListener("click", function (){
+    const elem_bubble_text = document.getElementById('bubble_text')
     const url = "https://github.com/itsjustaplant/spofly"
     document.execCommand("copy")
+    elem_bubble_text.textContent = "COPIED!"
+    elem_bubble_text.style.fontSize = "8px"
 })
 

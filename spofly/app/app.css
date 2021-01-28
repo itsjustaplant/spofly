@@ -5,6 +5,7 @@ body{
     background-image: url("../assets/images/spofly_background480x800.png");
     background-size: cover;
     background-position: 0 0;
+    overflow: hidden;
     transition: background-color 1s ease;
 }
 body::-webkit-scrollbar {
@@ -23,7 +24,7 @@ body::-webkit-scrollbar {
     width: 128px;
     height: 128px;
     border-radius: 50%;
-    animation: rotate 7s infinite;
+    animation: rotate 6s infinite;
 }
 #logo_text{
     width: 100vw;
@@ -62,8 +63,9 @@ body::-webkit-scrollbar {
     border: 1px solid transparent;
     border-radius: 4px;
     font-family: 'Quicksand', sans-serif;
+    outline: none;
 }
-#empty_button:hover #plant{
+#empty_button:hover #trademark{
     display: none;
 }
 #empty_button:hover #link:before{
@@ -202,26 +204,12 @@ pre{
     }
 }
 @keyframes rotate {
-     0% {
-         -webkit-transform: rotate3d(0, 0, 1, 0deg);
-         transform: rotate3d(0, 0, 1, 0deg);
+     0%{
+
      }
-     25% {
-         -webkit-transform: rotate3d(0, 0, 1, 90deg);
-         transform: rotate3d(0, 0, 1, 90deg);
-     }
-     50% {
-         -webkit-transform: rotate3d(0, 0, 1, 180deg);
-         transform: rotate3d(0, 0, 1, 180deg);
-     }
-     75% {
-         -webkit-transform: rotate3d(0, 0, 1, 270deg);
-         transform: rotate3d(0, 0, 1, 270deg);
-     }
-     100% {
-         -webkit-transform: rotate3d(0, 0, 1, 360deg);
-         transform: rotate3d(0, 0, 1, 360deg);
-     }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
  }
 @keyframes fade-in {
     0%{

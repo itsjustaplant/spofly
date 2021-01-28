@@ -26,7 +26,7 @@ app.once('ready', () => {
             enableRemoteModule: true,
             allowRunningInsecureContent: false,
             experimentalFeatures: false,
-            devTools: false
+            devTools: true
         }
     })
 
