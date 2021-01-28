@@ -5,7 +5,7 @@ It helps you to find lyrics of song you are currently listening on spotify witho
 
 ### Screenshots 
 
-![Image of flume-friends](https://github.com/itsjustaplant/spofly/macos/master/screenshots/flume_resized.png)
+![Image of flume-friends](https://github.com/itsjustaplant/spofly/blob/macos/screenshots/flume_resized.png)
 ![Image of rickroll](https://github.com/itsjustaplant/spofly/blob/macos/screenshots/rickastley_resized.png)
 
 # Security
