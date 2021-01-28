@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script defer src="auth.js"></script>
+    <script defer src="window.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+          connect-src https://colorflyv1.herokuapp.com https://api.kanye.rest https://api.spotify.com/v1/me/player/currently_playing https://i.scdn.co/image/;
+          img-src 'self' https://i.scdn.co/image/;
+          font-src https://fonts.gstatic.com;
+          style-src-elem 'self' https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/ https://fonts.googleapis.com/;
+    ">
+    <title>SPOFLY</title>
+</head>
+<body id="body">
+<div id="intro">
+    <a> <img id="logo" src="../assets/images/spofly_icon_2_512x512.png" alt="logo"></a>
+    <a id="logo_text">spofly</a>
+    <button id="login_button">LOGIN</button>
+    <div id="bubble">
+        <span id="bubble_text">HOVER ME</span>
+    </div>
+    <button id="empty_button">
+        <span class="intro_text" id="trademark">Made by 🌱</span>
+        <span class="intro_text" id="link"></span>
+    </button>
+</div>
+<div id="app">
+    <div id="cover">
+        <a> <img id="cover_art" src="" alt="cover-art"> </a>
+        <a class="ui-button" id="close-button"></a>
+        <a class="ui-button" id="minimize-button"></a>
+    </div>
+    <div id='lyric_section'>
+        <div id="song_title">
+            <span id="track_name">justaplant</span>
+        </div>
+        <div id="song_lyrics">
+            <pre id="lyrics"><span></span></pre>
+        </div>
+    </div>
+    <div id="status_bar">
+        <a id="status"></a>
+    </div>
+</div>
+</body>
+</html>

@@ -9,11 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "jwt-decode": "^3.1.2",
-    "keytar": "^7.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "electron": "^11.1.1",
     "request": "^2.88.2"
