@@ -1,7 +1,7 @@
 {
   "main": "main.js",
   "name": "spofly",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Desktop application to find lyrics",
   "author": "justaplant",
   "dependencies": {
