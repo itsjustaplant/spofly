@@ -1,55 +1,14 @@
-.ui-button{
-    margin-top: 1.5vw;
-    border: 1px solid #e33e41;
-    border-radius: 50%;
-    display: inline-block;
-    z-index: 3;
-    position: fixed;
-    height: 12px;
-    width: 12px;
-    opacity: 0;
-    font-size: 8pt;
-    text-align: center;
-    vertical-align: center;
-    -webkit-transition: all 0.2s ease;
-}
-#close-button{
-    margin-left: 2vw;
-    background: #ff5c5c;
-}
-#minimize-button{
-    margin-left: 6vw;
-    background: #ffd60a;
-}
-#cover:hover > #close-button {
-    opacity: 100;
-}
-
-#cover:hover > #minimize-button {
-    opacity: 100;
-}
-
-body::-webkit-scrollbar {
-    display: none;
-}
 body{
     width: 100vw;
     height: 100vh;
-    -ms-overflow-style: none;
     scrollbar-width: none;
     background-image: url("../assets/images/spofly_background480x800.png");
     background-size: cover;
     background-position: 0 0;
-    --background-color: #fafafa;
-    --text-color: #212121;
-
     transition: background-color 1s ease;
-
 }
-#app{
-    position: absolute;
-    margin-top: -428px;
-    opacity: 0;
+body::-webkit-scrollbar {
+    display: none;
 }
 #intro{
     display: block;
@@ -70,11 +29,11 @@ body{
     width: 100vw;
     text-align: center;
     alignment: center;
-    font-size: 42px;
+    font-size: 48px;
     -webkit-user-select: none;
-    font-family: 'Helvetica', serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: bold;
-    color: var(--text-color);
+    color: #212121;
 }
 #bubble{
     width: 40px;
@@ -99,21 +58,10 @@ body{
     touch-action: manipulation;
     cursor: pointer;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
-}
-.intro_text{
-    display: flex;
-    font-size: 16px;
-    text-align: center;
-    justify-content: center;
-    font-family: 'Raleway', sans-serif;
-    color: #212121 !important;
-    transition: text-shadow 1s;
+    font-family: 'Quicksand', sans-serif;
 }
 #empty_button:hover #plant{
     display: none;
@@ -122,6 +70,26 @@ body{
     display: inline;
     content: "Click me to copy url";
 }
+.intro_text{
+    display: flex;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #212121 !important;
+    transition: text-shadow 1s;
+}
+#app{
+    position: absolute;
+    margin-top: -428px;
+    opacity: 0;
+}
+#cover:hover > #close-button {
+    opacity: 100;
+}
+#cover:hover > #minimize-button {
+    opacity: 100;
+}
 #cover_art{
     width: 100%;
     height: 100vw;
@@ -129,18 +97,38 @@ body{
     alignment: center;
     z-index: 2;
     -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
     -webkit-user-select: none;
-    -ms-user-select: none;
     -webkit-app-region: drag;
+}
+.ui-button{
+    margin-top: 1.5vw;
+    border: 1px solid #e33e41;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 3;
+    position: fixed;
+    height: 12px;
+    width: 12px;
+    opacity: 0;
+    font-size: 8pt;
+    text-align: center;
+    vertical-align: center;
+    -webkit-transition: all 0.2s ease;
+}
+#close-button{
+    margin-left: 2vw;
+    background: #ff5c5c;
+}
+#minimize-button{
+    margin-left: 6vw;
+    background: #ffd60a;
 }
 #lyric_section{
     margin: auto;
     text-align: center;
     -webkit-user-select: none;
     font-family: 'Inter', sans-serif;
-    color: var(--text-color);
+    color: #212121;
 }
 #song_title{
     text-align: center;
@@ -235,3 +223,19 @@ pre{
          transform: rotate3d(0, 0, 1, 360deg);
      }
  }
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+@keyframes fade-out {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+    }
+}

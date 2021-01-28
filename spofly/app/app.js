@@ -4,29 +4,39 @@ const api_base_url = "https://colorflyv1.herokuapp.com/v1/"
 const kanye_rest = "https://api.kanye.rest"
 
 const getColor = (api_url) =>{
-    const xhr = new XMLHttpRequest()
-    const elem_body = document.getElementById('body')
-    const elem_song_title = document.getElementById('song_title')
-    const elem_lyrics = document.getElementById('lyrics')
-
-    xhr.open('GET', api_url, true)
-    xhr.onload = () =>{
-        const data = JSON.parse(xhr.response)
-        let background_color = data['color_0']
-        let text_color = data['color_1']
-        elem_body.style.backgroundImage = "url('')"
-        elem_body.style.backgroundColor = background_color
-        elem_song_title.style.backgroundColor = background_color
-        elem_song_title.style.color = text_color
-        elem_lyrics.style.color = text_color
-    }
-    xhr.send()
+    let elem_body = document.getElementById('body')
+    let elem_song_title = document.getElementById('song_title')
+    let elem_lyrics = document.getElementById('lyrics')
+    fetch(api_url, {
+        "headers": {
+            "accept": "*/*",
+            "accept-language": "en-US",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site"
+        },
+        "referrerPolicy": "no-referrer-when-downgrade",
+        "body": null,
+        "method": "GET",
+        "mode": "cors",
+        "credentials": "omit"
+    }).then(response => response.json())
+        .then(data =>{
+            let background_color = data['color_0']
+            let text_color = data['color_1']
+            elem_body.style.backgroundImage = "url('')"
+            elem_body.style.backgroundColor = background_color
+            elem_song_title.style.backgroundColor = background_color
+            elem_song_title.style.color = text_color
+            elem_lyrics.style.color = text_color
+        })
 }
 
 const getKanye = () =>{
     const xhr = new XMLHttpRequest()
     const elem_lyrics = document.getElementById('lyrics')
-    console.log(document.getElementById('lyrics').style.color)
+
+    xhr.send()
     if(document.getElementById('lyrics').style.color !== "rgb(224, 186, 13)"){
         xhr.open('GET', kanye_rest)
         xhr.onload = () =>{
@@ -35,22 +45,33 @@ const getKanye = () =>{
             elem_lyrics.textContent = "'" + JSON.parse(xhr.response)['quote'] + "'\n\t" + "Kanye West"
             elem_lyrics.style.fontStyle = "Italic"
         }
-        xhr.send()
     }
-
 }
 
-const getLyrics = (api_url, opt) =>{
-    const xhr = new XMLHttpRequest()
+const getLyrics = (opt) =>{
     const elem_lyrics = document.getElementById('lyrics')
-
-    xhr.open('POST', api_url, true)
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xhr.onload = () => {
-        const data = JSON.parse(xhr.response)
-        elem_lyrics.textContent = data['lyrics']
-    }
-    xhr.send(JSON.stringify(opt))
+    const elem_logo_div = document.getElementById('intro')
+    const elem_app = document.getElementById('app')
+    fetch("https://colorflyv1.herokuapp.com/v1//lyrics/", {
+        headers: {
+            "accept": "*/*",
+            "accept-language": "en-US",
+            "content-type": "application/json; charset=UTF-8",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site"
+        },
+        "referrerPolicy": "no-referrer-when-downgrade",
+        body: JSON.stringify(opt),
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "omit"
+    }).then(response => response.json())
+        .then(data =>{
+            elem_lyrics.textContent = data['lyrics']
+            elem_logo_div.style.animation = "fade-out 1s forwards"
+            elem_app.style.animation = "fade-in 1s forwards"
+        })
 }
 
 const renderPage = () =>{
@@ -90,7 +111,7 @@ const renderPage = () =>{
                 elem_track_name.textContent = artist_name + " - " + track_name
 
                 getColor(api_base_url + "/color/" + image_url)
-                getLyrics(api_base_url + "/lyrics/", options)
+                getLyrics(options)
             }
 
         } else if(!navigator.onLine){
@@ -100,15 +121,7 @@ const renderPage = () =>{
         } else if(navigator.onLine){
             document.getElementById('status_bar').style.animation = 'snap 2s forwards'
         }
-        Transition()
+
     })
 }
-const Transition = () =>{
-    const elem_logo_div = document.getElementById('intro')
-    const elem_app = document.getElementById('app')
-
-    elem_logo_div.style.opacity = "0"
-    elem_app.style.opacity = "100"
-}
-
 window.setInterval(renderPage, 10000)
