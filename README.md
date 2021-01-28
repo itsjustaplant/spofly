@@ -1,4 +1,4 @@
-# spofly
+![Banner](https://github.com/itsjustaplant/spofly/blob/macos/screenshots/spofly_banner_medium.png)
 Desktop app for spoflyv1.herokuapp.com
 
 It helps you to find lyrics of song you are currently listening on spotify without authentication.
