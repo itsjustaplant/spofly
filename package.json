@@ -1,17 +1,23 @@
 {
+  "main": "main.js",
   "name": "spofly_auth",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Desktop application to find lyrics",
+  "author": "justaplant",
+  "dependencies": {
+    "package-lock": "^1.0.5"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "electron": "^11.1.1",
-    "request": "^2.88.2"
+    "electron": "^10.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsjustaplant/spofly.git"
+  },
+  "build": {
+    "appId": "spofly",
+    "mac": {
+      "category": "music"
+    }
   }
 }
