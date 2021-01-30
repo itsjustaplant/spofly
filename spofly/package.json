@@ -9,7 +9,8 @@
     "spotify-node-applescript": "^1.1.1"
   },
   "devDependencies": {
-    "electron": "^10.1.5"
+    "electron": "^10.1.5",
+    "electron-packager": "^15.2.0"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,6 @@
     }
   },
   "scripts": {
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "build-macos": "electron-packager . $npm_package_name$npm_package_version --platform=darwin --icon=./build/icon.icns"
   }
 }
