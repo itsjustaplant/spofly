@@ -22,34 +22,37 @@
     <title>SPOFLY</title>
 </head>
 <body id="body">
-<div id="intro">
-    <a> <img id="logo" src="../assets/images/spofly_icon_high.png" alt="logo"></a>
-    <a id="logo_text">spofly</a>
-    <button id="login_button">LOGIN</button>
-    <div id="bubble">
-        <span id="bubble_text">HOVER ME</span>
+<div class="landing" id="landing-div">
+    <a> <img class="landing__icon" src="../assets/images/spofly_icon_high.png" alt="icon"></a>
+    <a class="landing__logo">spofly</a>
+    <div class="landing__button">
+        <button class="landing__button" id="login-button">Login</button>
+        <button class="landing__button" id="exit-button">Exit</button>
     </div>
-    <button id="empty_button">
-        <span class="intro_text" id="trademark">Made by 🌱</span>
-        <span class="intro_text" id="link"></span>
+    <div class="landing__bubble">
+        <span id="landing__bubble_text">HOVER ME</span>
+    </div>
+    <button class="landing__button" id="empty-button">
+        <span class="landing__trademark" id="trademark">Made by 🌱</span>
+        <span class="landing__trademark" id="link"></span>
     </button>
 </div>
-<div id="app">
-    <div id="cover">
-        <a> <img id="cover_art" src="" alt="cover-art"> </a>
-        <a class="ui-button" id="close-button"></a>
-        <a class="ui-button" id="minimize-button"></a>
+<div class="app" id="app-div">
+    <div class="app__cover" id="app-cover">
+        <a> <img class="app_cover--artwork" src="" id="artwork" alt="artwork"> </a>
+        <a class="app__cover--button" id="close-button"></a>
+        <a class="app__cover--button" id="minimize-button"></a>
     </div>
-    <div id='lyric_section'>
-        <div id="song_title">
-            <span id="track_name">justaplant</span>
+    <div class='app__block'>
+        <div class="app__block--header">
+            <span class="app__block--header--name" id="song-title">justaplant</span>
         </div>
-        <div id="song_lyrics">
+        <div class="app__block--lyrics">
             <pre id="lyrics"><span></span></pre>
         </div>
     </div>
-    <div id="status_bar">
-        <a id="status"></a>
+    <div class="app__status">
+        <a class="app__status--text"></a>
     </div>
 </div>
 </body>

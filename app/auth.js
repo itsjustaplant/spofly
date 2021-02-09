@@ -6,7 +6,8 @@ const API_BASE_URL = "https://colorflyv1.herokuapp.com/v1/"
 
 const electron = require('electron')
 
-const button = document.getElementById("login_button")
+const loginBtn = document.getElementById('login-button')
+const exitBtn = document.getElementById('exit-button')
 
 const remote = electron.remote
 const BrowserWindow = remote.BrowserWindow
@@ -22,39 +23,42 @@ const postAuth = (opt) =>{
     }
     xhr.send(JSON.stringify(opt))
 }
-const getSong = () =>{
+const getSong = async () =>{
     const xhr = new XMLHttpRequest()
-    const elem_track_name = document.getElementById('track_name')
-    const elem_cover_art = document.getElementById("cover_art")
+    const elem_track_name = document.getElementById('song-title')
 
     xhr.open('GET', SPOTIFY_API_URL + "/v1/me/player/currently_playing", true)
     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'))
     xhr.onload = () => {
-        const data = JSON.parse(xhr.response)
-        let artist = data['item']['artists'][0]['name']
-        let song = data['item']['name']
-        let title = artist + " - " + song
-        let artwork_url = data['item']['album']['images'][0]['url']
+        if(xhr.response === ""){
+            const logo_text = document.getElementById('landing__logo')
+        } else {
+            const data = JSON.parse(xhr.response)
+            let artist = data['item']['artists'][0]['name']
+            let song = data['item']['name']
+            let title = artist + " - " + song
+            let artwork_url = data['item']['album']['images'][0]['url']
+            if(title !== elem_track_name.textContent){
 
-        if(title !== elem_track_name.textContent){
-            elem_track_name.textContent = title
-            elem_cover_art.src = artwork_url
-            const options = {
-                artist: artist,
-                song: song
+                const options = {
+                    artist: artist,
+                    song: song,
+                }
+                getColor(API_BASE_URL + "/color/" + artwork_url)
+                getLyrics(options, artwork_url)
             }
-            getColor(API_BASE_URL + "/color/" + artwork_url)
-            getLyrics(options)
         }
     }
     xhr.send()
 }
 
-const getLyrics = (opt) =>{
+const getLyrics = (opt, url) =>{
     const elem_lyrics = document.getElementById('lyrics')
-    const elem_logo_div = document.getElementById('intro')
-    const elem_app = document.getElementById('app')
+    const elem_landing = document.getElementById('landing-div')
+    const elem_app = document.getElementById('app-div')
     const elem_body = document.getElementById('body')
+    const elem_track_name = document.getElementById('song-title')
+    const elem_artwork = document.getElementById("artwork")
 
     fetch("https://colorflyv1.herokuapp.com/v1//lyrics/", {
         headers: {
@@ -74,14 +78,16 @@ const getLyrics = (opt) =>{
         .then(data =>{
             elem_lyrics.textContent = data['lyrics']
             elem_body.style.overflow = "visible"
-            elem_logo_div.style.animation = "fade-out 1s forwards"
-            elem_app.style.animation = "fade-in 1s forwards"
+            elem_track_name.textContent = opt['artist'] +"-" + opt['song']
+            elem_artwork.src = url
+            elem_landing.style.animation = "snap 1s forwards"
+            elem_app.style.animation = "iron-snap 1s forwards"
         })
 }
 
-const getColor = (api_url) =>{
+const getColor = (api_url)  =>{
     let elem_body = document.getElementById('body')
-    let elem_song_title = document.getElementById('song_title')
+    let elem_song_title = document.getElementById('song-title')
     let elem_lyrics = document.getElementById('lyrics')
     fetch(api_url, {
         "headers": {
@@ -107,8 +113,7 @@ const getColor = (api_url) =>{
             elem_lyrics.style.color = text_color
         })
 }
-
-button.addEventListener('click', function (event) {
+loginBtn.addEventListener('click', function (event) {
     let spotify = new BrowserWindow({
         width: 500,
         height: 500,
@@ -134,14 +139,10 @@ button.addEventListener('click', function (event) {
                 let options = {
                     token: code
                 }
-
-                document.getElementById('login_button').style.visibility = "hidden"
-                document.getElementById('cover_art').style.visibility = "revert"
-                document.getElementById('song_title').style.visibility = "revert"
+                document.getElementById('artwork').style.visibility = "revert"
+                document.getElementById('song-title').style.visibility = "revert"
                 document.getElementById('lyrics').style.visibility = "revert"
-                document.getElementById('lyric_section').style.visibility = "revert"
                 postAuth(options)
-                setTimeout(getSong,2000)
                 document.getElementById('body').style.backgroundImage = "url('')"
                 setInterval(getSong, 5000)
             } else {
@@ -149,4 +150,8 @@ button.addEventListener('click', function (event) {
             }
         }
     });
+})
+exitBtn.addEventListener('click', function (){
+    const window = remote.getCurrentWindow()
+    window.close()
 })
