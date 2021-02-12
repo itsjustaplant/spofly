@@ -35,16 +35,22 @@ const getColor = (api_url) =>{
 const getKanye = () =>{
     const xhr = new XMLHttpRequest()
     const elem_lyrics = document.getElementById('lyrics')
+    const elem_logo_div = document.getElementById('intro')
+    const elem_app = document.getElementById('app')
+    const elem_body = document.getElementById('body')
 
-    xhr.send()
     if(document.getElementById('lyrics').style.color !== "rgb(224, 186, 13)"){
         xhr.open('GET', KANYE_REST_BASE_URL)
         xhr.onload = () =>{
+            elem_body.style.backgroundImage = "url('')"
             elem_lyrics.style.marginTop = "65vh"
             elem_lyrics.style.fontSize = "22px"
             elem_lyrics.textContent = "'" + JSON.parse(xhr.response)['quote'] + "'\n\t" + "Kanye West"
             elem_lyrics.style.fontStyle = "Italic"
+            elem_logo_div.style.animation = "fade-out 1s forwards"
+            elem_app.style.animation = "fade-in 1s forwards"
         }
+        xhr.send()
     }
 }
 
